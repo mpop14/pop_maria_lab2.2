@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using pop_maria_lab2.Data;
 
@@ -11,9 +12,10 @@ using pop_maria_lab2.Data;
 namespace pop_maria_lab2.Migrations
 {
     [DbContext(typeof(pop_maria_lab2Context))]
-    partial class pop_maria_lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20231031161959_BookCategory")]
+    partial class BookCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

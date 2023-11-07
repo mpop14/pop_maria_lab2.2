@@ -6,6 +6,8 @@ namespace pop_maria_lab2.Models
  
             public class Publisher
     {
+        internal IEnumerable<Book> Book;
+
         public int? PublisherID { get; set; }
        
         public int ID { get; set; }
