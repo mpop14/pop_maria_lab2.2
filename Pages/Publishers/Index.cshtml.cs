@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using pop_maria_lab2.Data;
 using pop_maria_lab2.Models;
 using pop_maria_lab2.Models.ViewModels;
-using pop_maria_lab2.Pages.Books;
+
 
 namespace pop_maria_lab2.Pages.Publishers
 {
@@ -30,16 +30,15 @@ namespace pop_maria_lab2.Pages.Publishers
         {
             PublisherData = new PublisherIndexData();
             PublisherData.Publishers = await _context.Publisher
-            .Include(i => i.Book)
+            .Include(i => i.Books)
             .ThenInclude(c => c.Author)
             .OrderBy(i => i.PublisherName)
             .ToListAsync();
             if (id != null)
             {
                 PublisherID = id.Value;
-                Publisher publisher = PublisherData.Publishers
-                .Where(i => i.ID == id.Value).Single();
-                PublisherData.Books = publisher.Book;
+                Publisher publisher = PublisherData.Publishers.Where(i => i.ID == id.Value).Single();
+                PublisherData.Books = publisher.Books;
             }
         }
     }
